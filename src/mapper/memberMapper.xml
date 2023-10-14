@@ -5,7 +5,7 @@
   <mapper namespace="member">
   	<select id="allList" resultType="dto.MemberDTO">
   		select id, mtype, name, phone, birth, gender, nickname, address
-  			from member
+  			from members
   	</select>
   	
   </mapper>

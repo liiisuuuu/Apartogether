@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,11 +53,14 @@ tr:last-child td:last-child {
 	<table>
 		<thead>
 			<tr>
-				<th>번호</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>조회수</th>
-				<th>날짜</th>
+				<th>아이디</th>
+				<th>회원구분</th>
+				<th>성명</th>
+				<th>전화번호</th>
+				<th>생년월일</th>
+				<th>성별</th>
+				<th>닉네임</th>
+				<th>주소</th>
 			</tr>
 		</thead>
 		<tfoot>
