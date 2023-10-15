@@ -8,4 +8,7 @@
   			from members
   	</select>
   	
+  	<select id="oneMember" resultType="dto.MemberDTO" parameterType="dto.MemberDTO">
+  		select * from members where id=#{id} and password=#{password}
+  	</select>
   </mapper>

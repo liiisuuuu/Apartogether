@@ -25,4 +25,12 @@ public class MemberDAO {
 		ss.close();
 		return list;
 	}
+	
+	public MemberDTO member(MemberDTO mem) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		MemberDTO member = ss.selectOne("member.oneMember", mem);
+		ss.close();
+		
+		return member;
+	}
 }

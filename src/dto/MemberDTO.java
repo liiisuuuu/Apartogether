@@ -89,4 +89,13 @@ public class MemberDTO {
 	public void setPasswordquest(String passwordquest) {
 		this.passwordquest = passwordquest;
 	}
+
+	@Override
+	public String toString() {
+		return "MemberDTO [id=" + id + ", mtype=" + mtype + ", name=" + name + ", password=" + password + ", phone="
+				+ phone + ", birth=" + birth + ", gender=" + gender + ", nickname=" + nickname + ", address=" + address
+				+ ", profile=" + profile + ", passwordanswer=" + passwordanswer + ", passwordquest=" + passwordquest
+				+ "]";
+	}
+	
 }
