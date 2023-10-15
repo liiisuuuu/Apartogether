@@ -13,36 +13,31 @@ public class LoginAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String id = request.getParameter("memId");
-		String pw = request.getParameter("memPw");
-		
-		String url = "";
+		String url = "index";
 		boolean method = false;
+		ActionForward af = new ActionForward(url, method);
 		
-		ActionForward af = null;
-		
-		try {
-
+		if (request.getMethod().equalsIgnoreCase("post")) {
+			String id = request.getParameter("memId");
+			String pw = request.getParameter("memPw");
+			
 			MemberDTO mem = new MemberDTO();
 			mem.setId(id);
 			mem.setPassword(pw);
 			
-			MemberDTO member = MemberDAO.getDao().member(mem);
-			
-			if (member == null) {
-				System.out.println("없는 회원");
+			try {
+				MemberDTO member = MemberDAO.getDao().member(mem);
 				
-				url = "index";
-				method = false;
+				if (member == null) {
+					System.out.println("없는 회원");
+					
+				} else {
+					af =  new MemberAction().execute(request, response);
+				}
 				
-				af = new ActionForward(url, method);
-				
-			} else {
-				af =  new MemberAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		
 		return af;
